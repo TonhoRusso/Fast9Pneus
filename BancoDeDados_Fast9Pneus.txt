@@ -1,0 +1,123 @@
+use Fast9Pneus
+
+-- Criei um banco de dados para armazenar dados Pessoais do Usuario
+Create table Dados_Pessoais(
+id int          IDENTITY(1,1) Primary Key NOT NULL,
+usuario         varchar(60)   unique      NOT NULL,
+senha           varchar(10)               NOT NULL,
+cpf             varchar(14)   unique      NOT NULL,
+email           varchar(100)  unique      NOT NULL,
+telefone        bigint                    NOT NULL,
+endereco        varchar(120)              NOT NULL,
+cep             bigint                    NOT NULL,
+complemento     (120)                     NOT NULL,
+nome            varchar(120)              NOT NULL,
+data_nasc       varchar(10)               NOT NULL
+)               
+
+--Criei um banco de dados para ser FOREIGN KEY com as informações das Oficinas que prestão serviçõs                
+Create Table Oficina(
+id_Oficina int IDENTITY(1,1) Primary Key Not null,
+CNPJ		int                  Not Null,
+Endereco 	Varchar(100)	   	 Not Null,
+CEP			Varchar(09)          Not Null
+)	 
+
+--Criei um banco de dados onde foi possivel conectar as informações do Usuario e da Oficina atraves de FOREIGN KEY
+Create Table Servico(
+id_Cod_Servico int IDENTITY(1,1) Primary Key                                                                             Not Null,
+id_Oficina	            int			    FOREIGN KEY(id_Oficina) REFERENCES Oficina(id_Oficina)                       ,
+id                          int				FOREIGN KEY(id) REFERENCES Dados_Pessoais(id)		                 ,
+Data			    varchar(10)		                                                    	                 Not Null,
+Hora		            varchar(05)			                                                                 Not Null,
+)
+
+
+
+--Inseri As oficinas prestadoras de serviço na tabela "Oficina"
+Insert into Oficina (Endereco, CEP, Telefone, Nome_Oficina,CNPJ)
+Values ('Av. Jabaquara, 1546 - Mirandópolis São Paulo - SP','04046-300','(11) 6758-8234','Oficina do Careca',01235987873845);
+
+Insert into Oficina (Endereco, CEP, Telefone, Nome_Oficina,CNPJ)
+Values ('Av. Washington Luís, 3085 - Santo Amaro São Paulo - SP','04660-000','(11)5412-8672','Oficina_do_Jantus',57892874326423);
+
+Insert into Oficina (Endereco, CEP, Telefone, Nome_Oficina,CNPJ)
+Values ('Av. Cupecê, 1846 - Jardim Prudência São Paulo - SP','04366-000','(11)7890-8765','Mestres_do-Oficio',97873891574356);
+
+//Inseri os dados de dias e horarios disponiveis semanalmente para as trocas de Fast9Pneus
+Insert into Servico (Data,Hora)
+Values ('12/06/2020','09:00');
+
+Insert into Servico (Data,Hora)
+Values ('12/06/2020','09:30');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','10:30');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','11:00');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','11:30');
+
+Insert into Servico (Data,Hora)
+Values ('12/06/2020','12:00');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','12:30');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','13:00');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','13:30');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','14:00');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','14:30');
+
+Insert into Servico (Data,Hora)
+Values  ('12/06/2020','15:00');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','15:30');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','16:00');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','16:30');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','17:00');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','17:30');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','18:00');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','18:30');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','19:00');
+        
+Insert into Servico (Data,Hora)
+Values('12/06/2020','19:30');
+
+Insert into Servico (Data,Hora)
+Values('12/06/2020','20:00');
+
+Insert into Servico (Data,Hora)
+Values('12/06/2020','20:30');
+
+Insert into Servico (Data,Hora)
+Values('12/06/2020','21:00');
+
+Insert into Servico (Data,Hora)
+Values('12/06/2020','21:30');
+
+
